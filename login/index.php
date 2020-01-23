@@ -18,10 +18,10 @@ session_start();
 if(get('action') == 'login') {
 
   $params = array(
-    'client_id' => OAUTH2_CLIENT_ID,
-    'redirect_uri' => 'https://yoursite.location/ifyouneedit',
+    'client_id' => 669043024860545045,
+    'redirect_uri' => 'https://bot.watchandy.xyz',
     'response_type' => 'code',
-    'scope' => 'identify guilds'
+    'scope' => 'identify email guilds'
   );
 
   // Redirect the user to Discord's authorization page
@@ -36,9 +36,9 @@ if(get('code')) {
   // Exchange the auth code for a token
   $token = apiRequest($tokenURL, array(
     "grant_type" => "authorization_code",
-    'client_id' => OAUTH2_CLIENT_ID,
-    'client_secret' => OAUTH2_CLIENT_SECRET,
-    'redirect_uri' => 'https://yoursite.location/ifyouneedit',
+    'client_id' => 669043024860545045,
+    'client_secret' => YNnLd-NeFJihvbuCztq9DDrAHldyk7jc,
+    'redirect_uri' => 'https://bot.watchandy.xyz',
     'code' => get('code')
   ));
   $logout_token = $token->access_token;
@@ -51,8 +51,8 @@ if(get('code')) {
 if(session('access_token')) {
   $user = apiRequest($apiURLBase);
 
-  echo '<h3>Logged In</h3>';
-  echo '<h4>Welcome, ' . $user->username . '</h4>';
+  echo '<h3>登入成功!</h3>';
+  echo '<h4>歡迎, ' . $user->username . '</h4>';
   echo '<pre>';
     print_r($user);
   echo '</pre>';
